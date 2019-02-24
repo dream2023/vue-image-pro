@@ -1,7 +1,7 @@
 node_modules
 src
 tests
-doc
+docs
 documentation
 public
 vue.config.js
