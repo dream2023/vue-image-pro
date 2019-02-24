@@ -1,9 +1,8 @@
 import Vue, { VNode } from 'vue'
 
+/** ImagePro Component */
 export declare interface ImagePro extends Vue {
-  /**
-   * 图片链接
-   */
+  /** 图片链接 */
   src?: string
 
   /**
@@ -30,14 +29,10 @@ export declare interface ImagePro extends Vue {
    */
   size?: number
 
-  /**
-   * 图片宽度
-   */
+  // 图片宽度
   width?: number
 
-  /**
-   * 图片高度
-   */
+  /** 图片高度 */
   height?: number
 
   /**

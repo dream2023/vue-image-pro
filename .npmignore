@@ -1,0 +1,11 @@
+node_modules
+src
+tests
+doc
+documentation
+public
+vue.config.js
+cypress.json
+babel.config.js
+.editorconfig
+dist/demo.html
