@@ -6,13 +6,13 @@
 
 ## Installation 安装
 
-```
+```bash
 npm install vue-image-pro
 ```
 
 ### Usage 用法
 
-```
+```js
 import ImagePro from 'vue-image-pro'
 
 export default {
