@@ -2,7 +2,11 @@
 
 组件的灵感来源于[小程序的 image 组件](https://developers.weixin.qq.com/miniprogram/dev/component/image.html)和[vue-avatar](https://github.com/eliep/vue-avatar) 组件, 相当于同时拥有两者的特性, 实现了包括图片自适应、响应式、当无图片时显示文字等。
 
-具体例子和文档信息请点击[这里](https://dream2023.github.io/vue-image-pro/)
+## 文档和示例
+
+点击查看在线[文档](https://dream2023.github.io/vue-image-pro/)
+<br />
+点击查看在线[示例](https://jsfiddle.net/zhangchaojie/hj67nkwv/)
 
 ## Installation 安装
 
@@ -22,6 +26,10 @@ export default {
   },
   ...
 }
+```
+
+```html
+<image-pro :size="100" username="vue-image-pro" background-color="#123456" />
 ```
 
 ## Props
