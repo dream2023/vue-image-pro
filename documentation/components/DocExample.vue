@@ -1,0 +1,143 @@
+<template>
+  <div>
+    <h2>示例</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>效果</th>
+          <th>代码</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          :key="index"
+          v-for="(item, index) of examples"
+        >
+          <td>
+            <image-pro v-bind="item.props"/>
+          </td>
+          <td>
+            <pre><code class="html">&lt;!-- {{item.desc}} --&gt;
+
+&lt;image-pro
+<div
+  :key="key"
+  v-for="(value, key) of item.props"
+>&nbsp;&nbsp;{{typeof value === 'string' ? '' : ':'}}{{key}}="{{value}}"</div>/&gt;</code></pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'DocExample',
+  data () {
+    return {
+      examples: [
+        {
+          props: {
+            size: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '保持了纵横比, 短边能完全显示出来, 另一个方向将会发生截取'
+        },
+        {
+          props: {
+            width: 50,
+            height: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '可以设置宽高, 依然保持宽高, 完美显示 '
+        },
+        {
+          props: {
+            mode: 'scaleToFill',
+            size: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '不保持纵横比缩放图片, 拉伸至填满 image 元素 '
+        },
+        {
+          props: {
+            mode: 'aspectFit',
+            size: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '保持纵横比缩放图片, 长边能完全显示出来, 可以完整地将图片显示出'
+        },
+        {
+          props: {
+            mode: 'widthFix',
+            size: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '宽度不变，高度自动变化，保持原图宽高比不变'
+        },
+        {
+          props: {
+            mode: 'heightFix',
+            size: 100,
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '高度不变，宽度自动变化，保持原图宽高比不变'
+        },
+        {
+          props: {
+            mode: 'responsive',
+            src: 'https://dwz.cn/r5An7zg3'
+          },
+          desc: '响应式, 高度自动调节, 宽度最大100% (不需要设置size或者width和height值)'
+        },
+        {
+          props: {
+            size: 100,
+            backgroundColor: '#409EFF',
+            username: 'zhangchaojie'
+          },
+          desc: '当无图片是, 显示username'
+        },
+        {
+          props: {
+            size: 100,
+            backgroundColor: '#409EFF',
+            username: 'zhang chao jie'
+          },
+          desc: 'username 可以根据空格进行拆分'
+        },
+        {
+          props: {
+            size: 100,
+            radius: 50,
+            backgroundColor: '#409EFF',
+            username: 'zhang-chao-jie'
+          },
+          desc: 'username 可以根据 - 进行拆分, 可以设置 radius'
+        },
+        {
+          props: {
+            size: 100,
+            radius: 50,
+            backgroundColor: '#000',
+            username: 'zhang-chao-jie'
+          },
+          desc: '可以设置背景'
+        },
+        {
+          props: {
+            size: 100,
+            customStyle: { opacity: 0.4 },
+            radius: 50,
+            color: '#67C23A',
+            backgroundColor: '#000',
+            username: 'zhang-chao-jie'
+          },
+          desc: '可以自定义样式 '
+        }
+      ]
+    }
+  }
+}
+</script>
