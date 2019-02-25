@@ -1,5 +1,11 @@
 # vue-image-pro
 
+[![license](https://img.shields.io/npm/l/vue-image-pro.svg)](https://dream2023.github.io/vue-image-pro/)
+[![npm](https://img.shields.io/npm/v/vue-image-pro.svg)](https://www.npmjs.com/package/vue-image-pro)
+[![size](https://img.shields.io/bundlephobia/minzip/vue-image-pro.svg)](https://www.npmjs.com/package/vue-image-pro)
+[![download](https://img.shields.io/npm/dw/vue-image-pro.svg)](https://npmcharts.com/compare/vue-image-pro?minimal=true)
+
+<br/>
 组件的灵感来源于[小程序的 image 组件](https://developers.weixin.qq.com/miniprogram/dev/component/image.html)和[vue-avatar](https://github.com/eliep/vue-avatar) 组件, 相当于同时拥有两者的特性, 实现了包括图片自适应、响应式、当无图片时显示文字等。
 
 ## 文档和示例

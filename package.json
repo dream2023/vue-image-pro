@@ -9,7 +9,7 @@
   "types": "./types/main.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dream2023/vue-image-pro.git"
+    "url": "https://dream2023.github.io/vue-image-pro/"
   },
   "keywords": [
     "vue",

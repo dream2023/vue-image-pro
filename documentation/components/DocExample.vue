@@ -112,7 +112,7 @@ export default {
             size: 100,
             radius: 50,
             backgroundColor: '#409EFF',
-            username: 'zhang-chao-jie'
+            username: '张'
           },
           desc: 'username 可以根据 - 进行拆分, 可以设置 radius'
         },
@@ -121,7 +121,7 @@ export default {
             size: 100,
             radius: 50,
             backgroundColor: '#000',
-            username: 'zhang-chao-jie'
+            username: '张-超'
           },
           desc: '可以设置背景'
         },
@@ -132,7 +132,7 @@ export default {
             radius: 50,
             color: '#67C23A',
             backgroundColor: '#000',
-            username: 'zhang-chao-jie'
+            username: '张-超-杰'
           },
           desc: '可以自定义样式 '
         }
