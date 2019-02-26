@@ -1,10 +1,18 @@
 # 待做事项
 
+- 增加 defaultSrc
 - 编写单元测试
 - 加入 lazy 新特性
-- 增加配置项
+- 增加默认配置项
   Vue.use(ImagePro, {
+  src: '',
+  color: '',
+  username: '',
   backgroundColor: '',
-  size: 100
+  size: '',
+  width: '',
+  height: ''
+  radius: '',
+  mode: ''
   })
 - 宣传

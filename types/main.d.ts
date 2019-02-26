@@ -15,7 +15,6 @@ export declare class ImagePro extends Vue {
     | 'aspectFill'
     | 'heightFix'
     | 'widthFix'
-    | 'responsive'
 
   /**
    * 用户名
@@ -37,7 +36,6 @@ export declare class ImagePro extends Vue {
 
   /**
    * 字体颜色
-   * @default #ffffff
    */
   color?: string
 
@@ -48,7 +46,6 @@ export declare class ImagePro extends Vue {
 
   /**
    * 圆角
-   * @default 0
    */
   radius?: number
 
@@ -62,13 +59,6 @@ export declare class ImagePro extends Vue {
    * 图片加载失败时触发
    */
   $emit(eventName: 'error'): this
-
-  /**
-   * slot插槽对象
-   */
-  $slots: {
-    '': VNode[]
-  }
 }
 
 export default ImagePro

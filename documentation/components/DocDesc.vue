@@ -11,6 +11,13 @@
       </p>
     </div>
     <div>
+      <h2>jsfindle在线示例</h2>
+      <a
+        href="https://jsfiddle.net/zhangchaojie/hj67nkwv/"
+        target="_blank"
+      >点我查看</a>
+    </div>
+    <div>
       <h2>安装</h2>
       <pre><code class="bash">npm install vue-image-pro</code></pre>
     </div>

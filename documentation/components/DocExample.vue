@@ -86,10 +86,19 @@ export default {
         },
         {
           props: {
-            mode: 'responsive',
-            src: 'https://dwz.cn/r5An7zg3'
+            username: 'zhangchaojie'
           },
-          desc: '响应式, 高度自动调节, 宽度最大100% (不需要设置size或者width和height值)'
+          desc: '默认情况, background随机, color根据背景计算'
+        },
+        {
+          props: {
+            size: 100,
+            radius: 50,
+            color: '#fff',
+            backgroundColor: '#000',
+            username: '张-超'
+          },
+          desc: '可以设置背景和字体颜色'
         },
         {
           props: {
@@ -115,15 +124,6 @@ export default {
             username: '张'
           },
           desc: 'username 可以根据 - 进行拆分, 可以设置 radius'
-        },
-        {
-          props: {
-            size: 100,
-            radius: 50,
-            backgroundColor: '#000',
-            username: '张-超'
-          },
-          desc: '可以设置背景'
         },
         {
           props: {

@@ -6,13 +6,13 @@
 [![download](https://img.shields.io/npm/dw/vue-image-pro.svg)](https://npmcharts.com/compare/vue-image-pro?minimal=true)
 
 <br/>
-组件的灵感来源于[小程序的 image 组件](https://developers.weixin.qq.com/miniprogram/dev/component/image.html)和[vue-avatar](https://github.com/eliep/vue-avatar) 组件, 相当于同时拥有两者的特性, 实现了包括图片自适应、响应式、当无图片时显示文字等。
+组件的灵感来源于[小程序的 image 组件](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) 和 [vue-avatar](https://github.com/eliep/vue-avatar) 组件, 相当于同时拥有两者的特性, 实现了包括图片自适应、响应式、当无图片时显示文字等。
 
 ## 文档和示例
 
-点击查看在线[文档](https://dream2023.github.io/vue-image-pro/)
+[文档点我查看](https://dream2023.github.io/vue-image-pro/)
 <br />
-点击查看在线[示例](https://jsfiddle.net/zhangchaojie/hj67nkwv/)
+[在线示例点我查看](https://jsfiddle.net/zhangchaojie/hj67nkwv/)
 
 ## Installation 安装
 
@@ -40,18 +40,18 @@ export default {
 
 ## Props
 
-| 属性名          | 是否必填 |     默认值 | 类型   | 说明                                                         |
-| --------------- | :------: | ---------: | ------ | ------------------------------------------------------------ |
-| username        |    N     |   (空字符) | String | 当 src 为空时,显示计算后用户名                               |
-| src             |    N     |          - | String | 图片链接                                                     |
-| mode            |    N     | aspectFill | String | 图片展示模式(下有详细介绍)                                   |
-| size            |    N     |         50 | Number | 宽=高=size 值, 如设置 width 和 height 属性, 会覆盖 size 属性 |
-| width           |    N     |          - | Number | 图片宽度                                                     |
-| height          |    N     |          - | Number | 图片高度                                                     |
-| color           |    N     |    #ffffff | String | 字体颜色                                                     |
-| backgroundColor |    N     |          - | String | 背景颜色                                                     |
-| radius          |    N     |          0 | Number | 图片圆角                                                     |
-| customStyle     |    N     |         {} | Object | 自定义样式                                                   |
+| 属性名          | 是否必填 |                            默认值 | 类型   | 说明                                                         |
+| --------------- | :------: | --------------------------------: | ------ | ------------------------------------------------------------ |
+| username        |    N     |                          (空字符) | String | 当 src 为空时,显示计算后用户名                               |
+| src             |    N     |                                 - | String | 图片链接                                                     |
+| mode            |    N     |                        aspectFill | String | 图片展示模式(下有详细介绍)                                   |
+| size            |    N     |                                50 | Number | 宽=高=size 值, 如设置 width 和 height 属性, 会覆盖 size 属性 |
+| width           |    N     |                                 - | Number | 图片宽度                                                     |
+| height          |    N     |                                 - | Number | 图片高度                                                     |
+| color           |    N     |                根据背景色自动计算 | String | 字体颜色                                                     |
+| backgroundColor |    N     |                          随机颜色 | String | 背景颜色                                                     |
+| radius          |    N     | 有图时默认为: 0, 无图时默认是: 50 | Number | 图片圆角                                                     |
+| customStyle     |    N     |                                {} | Object | 自定义样式                                                   |
 
 ### mode 值
 
@@ -62,4 +62,3 @@ export default {
 | aspectFit   | 保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来                                       |
 | widthFix    | 宽度不变，高度自动变化，保持原图宽高比不变                                                                               |
 | heightFix   | 高度不变，宽度自动变化，保持原图宽高比不变                                                                               |
-| responsive  | 响应式, 高度自动调节, 宽度最大 100%                                                                                      |

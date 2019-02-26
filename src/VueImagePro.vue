@@ -2,13 +2,8 @@
   <div
     :style="imageStyle"
     class="image"
-    v-if="src && mode !== 'responsive'"
+    v-if="src"
   ></div>
-  <img
-    :src="src"
-    :style="responsiveStyle"
-    v-else-if="src && mode === 'responsive'"
-  >
   <avatar
     :backgroundColor="backgroundColor"
     :color="color"
@@ -23,7 +18,7 @@
 
 <script>
 import Avatar from './Avatar'
-const modeArr = ['scaleToFill', 'aspectFit', 'aspectFill', 'heightFix', 'widthFix', 'responsive']
+const modeArr = ['scaleToFill', 'aspectFit', 'aspectFill', 'heightFix', 'widthFix']
 
 export default {
   name: 'ImagePro',
@@ -127,6 +122,7 @@ export default {
 
       return backgroundSize
     },
+
     // 图片大小
     backgroundSize () {
       let backgroundSize = ''
@@ -152,15 +148,7 @@ export default {
 
       return backgroundSize
     },
-    // 当mode=responsive时的样式
-    responsiveStyle () {
-      const style = {
-        borderRadius: this.radius + '%',
-        maxWidth: '100%',
-        height: 'auto'
-      }
-      return Object.assign({}, style, this.customStyle)
-    },
+
     // 图片的样式
     imageStyle () {
       const style = {
@@ -209,10 +197,5 @@ export default {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.responsive-img {
-  max-width: 100%;
-  height: auto;
 }
 </style>

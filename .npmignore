@@ -9,3 +9,4 @@ cypress.json
 babel.config.js
 .editorconfig
 dist/demo.html
+TODO.md

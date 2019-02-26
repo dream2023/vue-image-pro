@@ -97,21 +97,21 @@ export default {
         {
           name: 'color',
           required: 'N',
-          default: '#ffffff',
+          default: '(根据背景色计算)',
           type: 'String',
           desc: '字体颜色'
         },
         {
           name: 'backgroundColor',
           required: 'N',
-          default: '-',
+          default: '(随机颜色)',
           type: 'String',
           desc: '背景颜色'
         },
         {
           name: 'radius',
           required: 'N',
-          default: '0',
+          default: '有图时默认: 0, 无图时默认: 50',
           type: 'Number',
           desc: '图片圆角'
         },
@@ -143,10 +143,6 @@ export default {
         {
           value: 'heightFix',
           desc: '高度不变，宽度自动变化，保持原图宽高比不变'
-        },
-        {
-          value: 'responsive',
-          desc: '响应式, 高度自动调节, 宽度最大100%'
         }
       ]
     }
