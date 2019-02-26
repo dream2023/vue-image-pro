@@ -141,7 +141,7 @@ export default {
     // 图片大小
     backgroundSize () {
       let backgroundSize = ''
-      switch (this.mode) {
+      switch (this.imageMode) {
         // 保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。
         case 'aspectFit':
           backgroundSize = 'contain'
