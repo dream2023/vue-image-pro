@@ -5,16 +5,14 @@ export declare class ImagePro extends Vue {
   /** 图片链接 */
   src?: string
 
+  // 默认图片
+  defaultSrc: string
+
   /**
    * 图片缩放和裁剪模式
    * @default aspectFill
    */
-  mode?:
-    | 'scaleToFill'
-    | 'aspectFit'
-    | 'aspectFill'
-    | 'heightFix'
-    | 'widthFix'
+  mode?: 'scaleToFill' | 'aspectFit' | 'aspectFill' | 'heightFix' | 'widthFix'
 
   /**
    * 用户名

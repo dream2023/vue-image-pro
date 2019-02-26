@@ -13,9 +13,6 @@ export default {
     username: {
       type: String
     },
-    initials: {
-      type: String
-    },
     backgroundColor: {
       type: String
     },
@@ -29,10 +26,6 @@ export default {
       type: Boolean,
       default: true
     },
-    size: {
-      type: Number,
-      default: 50
-    },
     width: {
       type: Number
     },
@@ -40,8 +33,7 @@ export default {
       type: Number
     },
     radius: {
-      type: Number,
-      default: 50
+      type: Number
     },
     lighten: {
       type: Number,
@@ -64,42 +56,55 @@ export default {
   },
 
   computed: {
+    avatarRadius () {
+      return this.radius || (this.$IMAGE_PRO || {}).radius || 50
+    },
+
     background () {
-      return this.backgroundColor || this.randomBackgroundColor(this.username.length, this.backgroundColors)
+      return this.backgroundColor || (this.$IMAGE_PRO || {}).backgroundColor || this.randomBackgroundColor(this.username.length, this.backgroundColors)
     },
 
     fontColor () {
-      return this.color || this.lightenColor(this.background, this.lighten)
+      return this.color || (this.$IMAGE_PRO || {}).color || this.lightenColor(this.background, this.lighten)
     },
 
     fontSize () {
-      let divisor = 0
+      let divisor
       const chinesePattern = new RegExp('[\u4E00-\u9FA5]+')
-      this.userInitial.split().forEach((item) => {
-        if (chinesePattern.test(item)) {
-          divisor += 1.8
+      const isChinese = chinesePattern.test(this.userInitial)
+      if (this.userInitial.length <= 1) {
+        divisor = 1.8
+      } else if (this.userInitial.length === 2) {
+        if (isChinese) {
+          divisor = 2.8
         } else {
-          divisor += 1.3
+          divisor = 2.4
         }
-      })
-      return Math.floor(this.size / divisor)
+      } else {
+        if (isChinese) {
+          divisor = 3.6
+        } else {
+          divisor = 3.0
+        }
+      }
+      return Math.floor(this.width / divisor)
     },
 
     avatarWidth () {
-      return this.width || this.size
+      return this.width
     },
 
     avatarHeight () {
-      return this.height || this.size
+      return this.height
     },
 
     style () {
       const style = {
-        display: this.inline ? 'inline-flex' : 'flex',
+        display: 'inline-flex',
         width: `${this.avatarWidth}px`,
         height: `${this.avatarHeight}px`,
-        borderRadius: this.radius + '%',
-        lineHeight: `${(this.size + Math.floor(this.size / 20))}px`,
+        borderRadius: this.avatarRadius + '%',
+        lineHeight: `${(this.height + Math.floor(this.height / 20))}px`,
         fontWeight: 'bold',
         alignItems: 'center',
         justifyContent: 'center',
@@ -107,7 +112,7 @@ export default {
       }
       const initialBackgroundAndFontStyle = {
         backgroundColor: this.background,
-        font: `${this.fontSize}px/${this.size}px Helvetica, Arial, sans-serif`,
+        font: `${this.fontSize}px/${this.width}px Helvetica, Arial, sans-serif`,
         color: this.fontColor
       }
 
@@ -117,7 +122,8 @@ export default {
     },
 
     userInitial () {
-      const initials = this.initials || this.initial(this.username)
+      const username = this.username || (this.$IMAGE_PRO || {}).username || ''
+      const initials = this.initial(username)
       return initials
     }
   },

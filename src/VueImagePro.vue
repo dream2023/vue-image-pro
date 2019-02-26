@@ -2,7 +2,7 @@
   <div
     :style="imageStyle"
     class="image"
-    v-if="src"
+    v-if="imageSrc"
   ></div>
   <avatar
     :backgroundColor="backgroundColor"
@@ -27,10 +27,13 @@ export default {
     src: {
       type: String
     },
+    // 默认图片地址
+    defaultSrc: {
+      type: String
+    },
     // 图片裁剪、缩放的模式
     mode: {
       type: String,
-      default: 'aspectFill',
       validator (value) {
         return modeArr.includes(value)
       }
@@ -42,8 +45,7 @@ export default {
     },
     // 当宽高相等时
     size: {
-      type: Number,
-      default: 50
+      type: Number
     },
     // 宽度
     width: {
@@ -74,17 +76,30 @@ export default {
     Avatar
   },
   computed: {
+    // 图片模式
+    imageMode () {
+      return this.mode || (this.$IMAGE_PRO || {}).mode || 'aspectFill'
+    },
+
+    // 图片src
+    imageSrc () {
+      return this.src || this.defaultSrc || (this.$IMAGE_PRO || {}).src
+    },
+    // 图片size
+    computedSize () {
+      return this.size || (this.$IMAGE_PRO || {}).size || 50
+    },
     // 图片宽度
     imageWidth () {
-      return this.width || this.size
+      return this.width || (this.$IMAGE_PRO || {}).width || this.computedSize
     },
     // 图片高度
     imageHeight () {
-      return this.height || this.size
+      return this.height || (this.$IMAGE_PRO || {}).height || this.computedSize
     },
     // 图片圆角
     imageRadius () {
-      return this.radius || 0
+      return this.radius || (this.$IMAGE_PRO || {}).radius || 0
     },
 
     // mode = aspectFill 时 background-size
@@ -156,7 +171,7 @@ export default {
         height: `${this.imageHeight}px`,
         borderRadius: `${this.imageRadius}%`,
         backgroundSize: this.backgroundSize,
-        backgroundImage: `url(${this.src})`
+        backgroundImage: `url(${this.imageSrc})`
       }
       return Object.assign({}, style, this.customStyle)
     }
@@ -168,9 +183,10 @@ export default {
   },
   methods: {
     getImageSize () {
-      if (this.src) {
+      if (this.imageSrc) {
         const img = new Image()
-        img.src = this.src
+        img.src = this.imageSrc
+
         img.onerror = () => {
           this.$emit('error')
         }

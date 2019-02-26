@@ -19,11 +19,33 @@
     </div>
     <div>
       <h2>安装</h2>
-      <pre><code class="bash">npm install vue-image-pro</code></pre>
+      <pre><code class="bash">npm install vue-image-pro --save</code></pre>
     </div>
     <div>
       <h2>用法</h2>
-      <pre><code class="javascript">import ImagePro from 'vue-image-pro'
+      <pre>
+        <code class="js">
+// 全局 (推荐)
+import ImagePro from 'vue-image-pro'
+
+// 可以配置全局默认值
+Vue.use(ImagePro, {
+  src: '',
+  color: '',
+  username: '',
+  backgroundColor: '',
+  size: '',
+  width: '',
+  height: '',
+  radius: '',
+  mode: ''
+})
+        </code>
+      </pre>
+      <pre><code class="javascript">
+// 局部导入
+// 这里注意要有 {} 括号
+import { ImagePro } from 'vue-image-pro'
 
 export default {
   components: {

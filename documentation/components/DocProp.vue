@@ -67,6 +67,13 @@ export default {
           desc: '图片链接'
         },
         {
+          name: 'defaultSrc',
+          required: 'N',
+          default: '-',
+          type: 'String',
+          desc: '默认图片'
+        },
+        {
           name: 'mode',
           required: 'N',
           default: 'aspectFill',

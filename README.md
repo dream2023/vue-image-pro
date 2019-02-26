@@ -17,13 +17,33 @@
 ## Installation 安装
 
 ```bash
-npm install vue-image-pro
+npm install vue-image-pro  --save
 ```
 
 ### Usage 用法
 
 ```js
+// 全局 (推荐)
 import ImagePro from 'vue-image-pro'
+
+// 可以配置全局默认值
+Vue.use(ImagePro, {
+  src: '',
+  color: '',
+  username: '',
+  backgroundColor: '',
+  size: '',
+  width: '',
+  height: '',
+  radius: '',
+  mode: ''
+})
+```
+
+```js
+// 局部导入
+// 这里注意要有 {} 括号
+import { ImagePro } from 'vue-image-pro'
 
 export default {
   ...
@@ -40,18 +60,19 @@ export default {
 
 ## Props
 
-| 属性名          | 是否必填 |                            默认值 | 类型   | 说明                                                         |
-| --------------- | :------: | --------------------------------: | ------ | ------------------------------------------------------------ |
-| username        |    N     |                          (空字符) | String | 当 src 为空时,显示计算后用户名                               |
-| src             |    N     |                                 - | String | 图片链接                                                     |
-| mode            |    N     |                        aspectFill | String | 图片展示模式(下有详细介绍)                                   |
-| size            |    N     |                                50 | Number | 宽=高=size 值, 如设置 width 和 height 属性, 会覆盖 size 属性 |
-| width           |    N     |                                 - | Number | 图片宽度                                                     |
-| height          |    N     |                                 - | Number | 图片高度                                                     |
-| color           |    N     |                根据背景色自动计算 | String | 字体颜色                                                     |
-| backgroundColor |    N     |                          随机颜色 | String | 背景颜色                                                     |
+| 属性名          | 是否必填 |              默认值               | 类型   | 说明                                                         |
+| --------------- | :------: | :-------------------------------: | ------ | ------------------------------------------------------------ |
+| username        |    N     |             (空字符)              | String | 当 src 为空时,显示计算后用户名                               |
+| src             |    N     |                 -                 | String | 图片链接                                                     |
+| defaultSrc      |    N     |                 -                 | String | 默认图片                                                     |
+| mode            |    N     |            aspectFill             | String | 图片展示模式(下有详细介绍)                                   |
+| size            |    N     |                50                 | Number | 宽=高=size 值, 如设置 width 和 height 属性, 会覆盖 size 属性 |
+| width           |    N     |                 -                 | Number | 图片宽度                                                     |
+| height          |    N     |                 -                 | Number | 图片高度                                                     |
+| color           |    N     |        根据背景色自动计算         | String | 字体颜色                                                     |
+| backgroundColor |    N     |             随机颜色              | String | 背景颜色                                                     |
 | radius          |    N     | 有图时默认为: 0, 无图时默认是: 50 | Number | 图片圆角                                                     |
-| customStyle     |    N     |                                {} | Object | 自定义样式                                                   |
+| customStyle     |    N     |                {}                 | Object | 自定义样式                                                   |
 
 ### mode 值
 

@@ -86,6 +86,14 @@ export default {
         },
         {
           props: {
+            size: 100,
+            defaultSrc: 'https://dwz.cn/q4z3fZF1'
+          },
+          desc: '可以设置默认显示图片'
+        },
+        {
+          props: {
+            size: 100,
             username: 'zhangchaojie'
           },
           desc: '默认情况, background随机, color根据背景计算'
@@ -104,7 +112,7 @@ export default {
           props: {
             size: 100,
             backgroundColor: '#409EFF',
-            username: 'zhangchaojie'
+            username: 'zhang chaojie'
           },
           desc: '当无图片是, 显示username'
         },
