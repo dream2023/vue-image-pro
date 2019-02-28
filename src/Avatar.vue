@@ -3,7 +3,9 @@
     :style="[style, customStyle]"
     aria-hidden="true"
     class="vue-avatar--wrapper"
-  >{{ userInitial }}</div>
+  >
+    <slot>{{ userInitial }}</slot>
+  </div>
 </template>
 
 <script>

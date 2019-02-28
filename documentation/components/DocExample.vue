@@ -14,10 +14,22 @@
           v-for="(item, index) of examples"
         >
           <td>
-            <image-pro v-bind="item.props"/>
+            <image-pro v-bind="item.props">
+              <template v-if="item.slot">{{item.slot}}</template>
+            </image-pro>
           </td>
           <td>
-            <pre><code class="html">&lt;!-- {{item.desc}} --&gt;
+            <pre v-if="item.slot"><code class="html">&lt;!-- {{item.desc}} --&gt;
+
+&lt;image-pro
+<div
+  :key="key"
+  v-for="(value, key) of item.props"
+>&nbsp;&nbsp;{{typeof value === 'string' ? '' : ':'}}{{key}}="{{value}}"&gt;</div>  {{item.slot}}
+&lt;/image-pro&gt;
+</code></pre>
+
+            <pre v-else><code class="html">&lt;!-- {{item.desc}} --&gt;
 
 &lt;image-pro
 <div
@@ -143,6 +155,14 @@ export default {
             username: '张-超-杰'
           },
           desc: '可以自定义样式 '
+        },
+        {
+          props: {
+            size: 100,
+            username: '张-超-杰'
+          },
+          slot: '插槽',
+          desc: '支持插槽'
         }
       ]
     }

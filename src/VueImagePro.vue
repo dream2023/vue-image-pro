@@ -13,7 +13,9 @@
     :username="username"
     :width="imageWidth"
     v-else
-  />
+  >
+    <slot></slot>
+  </avatar>
 </template>
 
 <script>

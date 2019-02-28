@@ -43,6 +43,14 @@
         </tr>
       </tbody>
     </table>
+
+    <h2>支持插槽</h2>
+    <pre>
+        <code class="html">&lt;image-pro :size="100"&gt;插槽&lt;/image-pro&gt;</code>
+      <image-pro :size="100">
+        <span style="font-size:28px">插槽</span>
+      </image-pro>
+    </pre>
   </div>
 </template>
 
