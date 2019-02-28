@@ -11,9 +11,9 @@
       </p>
     </div>
     <div>
-      <h2>jsfindle在线示例</h2>
+      <h2>在线示例</h2>
       <a
-        href="https://jsfiddle.net/zhangchaojie/hj67nkwv/"
+        href="http://jsrun.net/x2XKp/"
         target="_blank"
       >点我查看</a>
     </div>

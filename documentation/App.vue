@@ -4,7 +4,14 @@
     <doc-github/>
     <doc-desc/>
     <doc-prop/>
-    <doc-example/>
+    <h2>示例</h2>
+    <iframe
+      allowfullscreen="allowfullscreen"
+      frameborder="0"
+      height="300"
+      src="//jsrun.net/x2XKp/embedded/all/light/"
+      width="100%"
+    ></iframe>
   </div>
 </template>
 
@@ -13,7 +20,6 @@ import DocHeader from './components/DocHeader'
 import DocGithub from './components/DocGithub'
 import DocDesc from './components/DocDesc'
 import DocProp from './components/DocProp'
-import DocExample from './components/DocExample'
 
 export default {
   name: 'App',
@@ -21,8 +27,7 @@ export default {
     DocHeader,
     DocGithub,
     DocDesc,
-    DocProp,
-    DocExample
+    DocProp
   }
 }
 </script>
