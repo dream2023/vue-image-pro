@@ -4,14 +4,17 @@
     <doc-github/>
     <doc-desc/>
     <doc-prop/>
-    <h2>示例</h2>
-    <iframe
-      allowfullscreen="allowfullscreen"
-      frameborder="0"
-      height="2000"
-      src="//jsrun.net/x2XKp/embedded/all/light/"
-      width="100%"
-    ></iframe>
+    <doc-example v-if="isDev"/>
+    <div v-else>
+      <h2>示例</h2>
+      <iframe
+        allowfullscreen="allowfullscreen"
+        frameborder="0"
+        height="2000"
+        src="//jsrun.net/x2XKp/embedded/all/light/"
+        width="100%"
+      ></iframe>
+    </div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ import DocHeader from './components/DocHeader'
 import DocGithub from './components/DocGithub'
 import DocDesc from './components/DocDesc'
 import DocProp from './components/DocProp'
+import DocExample from './components/DocExample'
 
 export default {
   name: 'App',
@@ -27,7 +31,13 @@ export default {
     DocHeader,
     DocGithub,
     DocDesc,
-    DocProp
+    DocProp,
+    DocExample
+  },
+  data () {
+    return {
+      isDev: process.env.NODE_ENV === 'development'
+    }
   }
 }
 </script>
