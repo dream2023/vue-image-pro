@@ -88,7 +88,7 @@ export default {
           imageWidthPercent *= 100 / imageHeightPercent
           imageHeightPercent = 100
         }
-        backgroundSize = `${imageWidthPercent}% ${imageHeightPercent}%`
+        backgroundSize = `${Math.floor(imageWidthPercent)}% ${Math.floor(imageHeightPercent)}%`
       } else {
         backgroundSize = null
       }
@@ -114,6 +114,7 @@ export default {
         case 'widthFix':
           backgroundSize = '100% auto'
           break
+        case 'scaleToFill':
         default:
           // 不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素
           backgroundSize = `${this.width}px ${this.height}px`

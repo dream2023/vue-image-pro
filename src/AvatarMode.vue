@@ -10,10 +10,11 @@
 
 <script>
 export default {
-  name: 'avatar',
+  name: 'AvatarMode',
   props: {
     username: {
-      type: String
+      type: String,
+      default: ''
     },
     backgroundColor: {
       type: String
@@ -23,10 +24,6 @@ export default {
     },
     customStyle: {
       type: Object
-    },
-    inline: {
-      type: Boolean,
-      default: true
     },
     width: {
       type: Number
@@ -51,10 +48,6 @@ export default {
         '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107',
         '#FF9800', '#FF5722', '#795548', '#9E9E9E', '#607D8B']
     }
-  },
-
-  mounted () {
-    this.$emit('avatar-initials', this.username, this.userInitial)
   },
 
   computed: {
@@ -92,33 +85,16 @@ export default {
       return Math.floor(this.width / divisor)
     },
 
-    avatarWidth () {
-      return this.width
-    },
-
-    avatarHeight () {
-      return this.height
-    },
-
     style () {
       const style = {
-        display: 'inline-flex',
-        width: `${this.avatarWidth}px`,
-        height: `${this.avatarHeight}px`,
+        width: `${this.width}px`,
+        height: `${this.height}px`,
         borderRadius: this.avatarRadius + '%',
-        lineHeight: `${(this.height + Math.floor(this.height / 20))}px`,
-        fontWeight: 'bold',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center'
-      }
-      const initialBackgroundAndFontStyle = {
         backgroundColor: this.background,
-        font: `${this.fontSize}px/${this.width}px Helvetica, Arial, sans-serif`,
-        color: this.fontColor
+        font: `${this.fontSize}px/${this.width}px bold Helvetica, Arial, sans-serif`,
+        color: this.fontColor,
+        lineHeight: `${(this.height + Math.floor(this.height / 20))}px`
       }
-
-      Object.assign(style, initialBackgroundAndFontStyle)
 
       return style
     },
@@ -174,3 +150,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.vue-avatar--wrapper {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+</style>
