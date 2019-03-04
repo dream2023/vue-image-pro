@@ -166,6 +166,7 @@ export default {
   font-weight: bold;
   display: inline-block;
   background-repeat: no-repeat;
+  vertical-align: middle;
   background-position: center;
 }
 </style>
