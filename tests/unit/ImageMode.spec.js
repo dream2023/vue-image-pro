@@ -1,25 +1,235 @@
 import { expect } from 'chai'
-import { mount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import plugin from '../../src/index.js'
 import ImageMode from '../../src/ImageMode.vue'
 
 describe('ImageMode.vue', function () {
-  const src = 'http://localhost/test.jpeg'
-  const wrapper = mount(ImageMode, {
-    propsData: {
-      src: src,
-      width: 100,
-      height: 100
-    }
+  it('imageMode: 默认值为: aspectFill', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: 'http://test.png',
+        width: 100,
+        height: 100
+      }
+    })
+
+    expect(wrapper.vm.imageMode).to.equal('aspectFill')
   })
 
-  wrapper.setData({
-    imageSize: {
-      width: 2560,
-      height: 1440
-    }
+  it('imageMode: 全局配置', function () {
+    const localVue = createLocalVue()
+    const globalMode = 'widthFix'
+    localVue.use(plugin, {
+      mode: globalMode
+    })
+    const wrapper = shallowMount(ImageMode, {
+      localVue,
+      propsData: {
+        src: 'http://test.png',
+        width: 100,
+        height: 100
+      }
+    })
+    expect(wrapper.vm.imageMode).to.equal(globalMode)
+  })
+
+  it('imageMode: 属性mode', function () {
+    const localVue = createLocalVue()
+    const globalMode = 'widthFix'
+    const customMode = 'heightFix'
+    localVue.use(plugin, {
+      mode: globalMode
+    })
+    const wrapper = shallowMount(ImageMode, {
+      localVue,
+      propsData: {
+        mode: customMode,
+        src: 'http://test.png',
+        width: 100,
+        height: 100
+      }
+    })
+    expect(wrapper.vm.imageMode).to.equal(customMode)
+  })
+
+  it('imageRadius: 默认值 0', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: 'http://image.png',
+        width: 100,
+        height: 100
+      }
+    })
+
+    expect(wrapper.vm.imageRadius).to.equal(0)
+  })
+
+  it('imageRadius: 全局设置radius', function () {
+    const localVue = createLocalVue()
+    const globalRadius = 40
+    localVue.use(plugin, {
+      radius: globalRadius
+    })
+    const wrapper = shallowMount(ImageMode, {
+      localVue,
+      props: {
+        width: 100,
+        height: 100,
+        src: 'https://test.png'
+      }
+    })
+
+    expect(wrapper.vm.imageRadius).to.equal(globalRadius)
+  })
+
+  it('imageRadius: 设置属性radius', function () {
+    const localVue = createLocalVue()
+    const globalRadius = 40
+    const customRadius = 60
+    localVue.use(plugin, {
+      radius: globalRadius
+    })
+    const wrapper = shallowMount(ImageMode, {
+      localVue,
+      propsData: {
+        radius: customRadius,
+        width: 100,
+        height: 100,
+        src: 'https://test.png'
+      }
+    })
+
+    expect(wrapper.vm.imageRadius).to.equal(customRadius)
+  })
+
+  it('backgroundSize: mode: 不填, width: 50, height: 100', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: 50,
+        height: 100
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 2560,
+        height: 1440
+      }
+    })
+
+    console.log(wrapper.vm.backgroundSize)
+    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
+  })
+
+  it('backgroundSize: mode: aspectFill, width: 50, height: 100', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        mode: 'aspectFill',
+        width: 50,
+        height: 100
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 2560,
+        height: 1440
+      }
+    })
+
+    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
+  })
+
+  it('backgroundSize: width: 100, height: 50', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: 100,
+        height: 50
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 2560,
+        height: 1440
+      }
+    })
+
+    expect(wrapper.vm.backgroundSize).to.equal('100% 112%')
+  })
+
+  it('backgroundSize: mode: aspectFit', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        mode: 'aspectFit',
+        width: 100,
+        height: 50
+      }
+    })
+
+    expect(wrapper.vm.backgroundSize).to.equal('contain')
+  })
+
+  it('backgroundSize: mode: scaleToFill, width: 50, height: 100', function () {
+    const width = 50
+    const height = 100
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: width,
+        height: height,
+        mode: 'scaleToFill'
+      }
+    })
+
+    expect(wrapper.vm.backgroundSize).to.equal(`${width}px ${height}px`)
+  })
+
+  it('backgroundSize: mode: heightFix', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: 50,
+        height: 50,
+        mode: 'heightFix'
+      }
+    })
+    expect(wrapper.vm.backgroundSize).to.equal('auto 100%')
+  })
+
+  it('backgroundSize: mode: widthFix', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: 50,
+        height: 50,
+        mode: 'widthFix'
+      }
+    })
+    expect(wrapper.vm.backgroundSize).to.equal('100% auto')
   })
 
   it('ImageMode style', function () {
+    const src = 'http://localhost/test.jpeg'
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: src,
+        width: 100,
+        height: 100
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 2560,
+        height: 1440
+      }
+    })
+
     expect(JSON.stringify(wrapper.vm.imageStyle)).to.equal(
       JSON.stringify({
         width: `100px`,
@@ -29,67 +239,5 @@ describe('ImageMode.vue', function () {
         backgroundImage: `url(${src})`
       })
     )
-  })
-
-  it('mode: null, width: 50, height: 100 => backgroundSize: 355% 100%', function () {
-    wrapper.setProps({
-      width: 50,
-      height: 100
-    })
-    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
-  })
-
-  it('mode: aspectFill, width: 50, height: 100 => backgroundSize: 355% 100%', function () {
-    wrapper.setProps({
-      width: 50,
-      height: 100,
-      mode: 'aspectFill'
-    })
-    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
-  })
-
-  it('width: 100, height: 50 => backgroundSize: 100% 112%', function () {
-    wrapper.setProps({
-      width: 100,
-      height: 50
-    })
-
-    expect(wrapper.vm.backgroundSize).to.equal('100% 112%')
-  })
-
-  it('mode: aspectFit => backgroundSize: contain', function () {
-    wrapper.setProps({
-      mode: 'aspectFit'
-    })
-
-    expect(wrapper.vm.backgroundSize).to.equal('contain')
-  })
-
-  it('mode: scaleToFill, width: 50, height: 100 => backgroundSize: width, height', function () {
-    const width = 50
-    const height = 100
-    wrapper.setProps({
-      width: width,
-      height: height,
-      mode: 'scaleToFill'
-    })
-
-    expect(wrapper.vm.backgroundSize).to.equal(`${width}px ${height}px`)
-  })
-
-  it('mode: heightFix => backgroundSize: auto 100%', function () {
-    wrapper.setProps({
-      mode: 'heightFix'
-    })
-
-    expect(wrapper.vm.backgroundSize).to.equal('auto 100%')
-  })
-
-  it('mode: widthFix => backgroundSize: 100% auto', function () {
-    wrapper.setProps({
-      mode: 'widthFix'
-    })
-
-    expect(wrapper.vm.backgroundSize).to.equal('100% auto')
   })
 })

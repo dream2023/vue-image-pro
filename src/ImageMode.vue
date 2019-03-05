@@ -29,16 +29,19 @@ export default {
     radius: {
       type: Number
     },
+
     // 宽度
     width: {
       type: Number,
       required: true
     },
+
     // 高度
     height: {
       type: Number,
       required: true
     },
+
     // 自定义样式
     customStyle: {
       type: Object
