@@ -1,5 +1,6 @@
 import VueImagePro from './VueImagePro'
 
+/* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.component('image-pro', VueImagePro)
 }

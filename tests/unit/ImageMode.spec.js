@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import plugin from '../../src/index.js'
 import ImageMode from '../../src/ImageMode.vue'
@@ -13,7 +12,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.imageMode).to.equal('aspectFill')
+    expect(wrapper.vm.imageMode).toBe('aspectFill')
   })
 
   it('imageMode: 全局配置', function () {
@@ -30,7 +29,7 @@ describe('ImageMode.vue', function () {
         height: 100
       }
     })
-    expect(wrapper.vm.imageMode).to.equal(globalMode)
+    expect(wrapper.vm.imageMode).toBe(globalMode)
   })
 
   it('imageMode: 属性mode', function () {
@@ -49,7 +48,7 @@ describe('ImageMode.vue', function () {
         height: 100
       }
     })
-    expect(wrapper.vm.imageMode).to.equal(customMode)
+    expect(wrapper.vm.imageMode).toBe(customMode)
   })
 
   it('imageRadius: 默认值 0', function () {
@@ -61,7 +60,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.imageRadius).to.equal(0)
+    expect(wrapper.vm.imageRadius).toBe(0)
   })
 
   it('imageRadius: 全局设置radius', function () {
@@ -79,7 +78,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.imageRadius).to.equal(globalRadius)
+    expect(wrapper.vm.imageRadius).toBe(globalRadius)
   })
 
   it('imageRadius: 设置属性radius', function () {
@@ -99,7 +98,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.imageRadius).to.equal(customRadius)
+    expect(wrapper.vm.imageRadius).toBe(customRadius)
   })
 
   it('backgroundSize: mode: 不填, width: 50, height: 100', function () {
@@ -118,8 +117,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    console.log(wrapper.vm.backgroundSize)
-    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
+    expect(wrapper.vm.backgroundSize).toBe('355% 100%')
   })
 
   it('backgroundSize: mode: aspectFill, width: 50, height: 100', function () {
@@ -139,7 +137,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.backgroundSize).to.equal('355% 100%')
+    expect(wrapper.vm.backgroundSize).toBe('355% 100%')
   })
 
   it('backgroundSize: width: 100, height: 50', function () {
@@ -158,7 +156,25 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.backgroundSize).to.equal('100% 112%')
+    expect(wrapper.vm.backgroundSize).toBe('100% 112%')
+  })
+  it('backgroundSize: width: 100, height: 50', function () {
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: '/',
+        width: 100,
+        height: 50
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 1440,
+        height: 2560
+      }
+    })
+
+    expect(wrapper.vm.backgroundSize).toBe('100% 355%')
   })
 
   it('backgroundSize: mode: aspectFit', function () {
@@ -171,7 +187,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.backgroundSize).to.equal('contain')
+    expect(wrapper.vm.backgroundSize).toBe('contain')
   })
 
   it('backgroundSize: mode: scaleToFill, width: 50, height: 100', function () {
@@ -186,7 +202,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(wrapper.vm.backgroundSize).to.equal(`${width}px ${height}px`)
+    expect(wrapper.vm.backgroundSize).toBe(`${width}px ${height}px`)
   })
 
   it('backgroundSize: mode: heightFix', function () {
@@ -198,7 +214,7 @@ describe('ImageMode.vue', function () {
         mode: 'heightFix'
       }
     })
-    expect(wrapper.vm.backgroundSize).to.equal('auto 100%')
+    expect(wrapper.vm.backgroundSize).toBe('auto 100%')
   })
 
   it('backgroundSize: mode: widthFix', function () {
@@ -210,7 +226,7 @@ describe('ImageMode.vue', function () {
         mode: 'widthFix'
       }
     })
-    expect(wrapper.vm.backgroundSize).to.equal('100% auto')
+    expect(wrapper.vm.backgroundSize).toBe('100% auto')
   })
 
   it('ImageMode style', function () {
@@ -230,7 +246,7 @@ describe('ImageMode.vue', function () {
       }
     })
 
-    expect(JSON.stringify(wrapper.vm.imageStyle)).to.equal(
+    expect(JSON.stringify(wrapper.vm.imageStyle)).toBe(
       JSON.stringify({
         width: `100px`,
         height: `100px`,

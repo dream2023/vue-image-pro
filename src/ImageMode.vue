@@ -139,15 +139,18 @@ export default {
     }
   },
   methods: {
+    /* istanbul ignore next */
     getImageSize () {
       if (this.src) {
         const img = new Image()
         img.src = this.src
 
+        /* istanbul ignore next */
         img.onerror = () => {
           this.$emit('error')
         }
 
+        /* istanbul ignore next */
         img.onload = () => {
           this.imageSize = {
             width: img.width,

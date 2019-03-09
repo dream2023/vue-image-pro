@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueImagePro from '../../src/VueImagePro.vue'
 import AvatarMode from '../../src/AvatarMode.vue'
@@ -8,7 +7,7 @@ import plugin from '../../src/index.js'
 describe('VueImagePro.vue', function () {
   it('当无src时, 加载AvatarMode', function () {
     const wrapper = shallowMount(VueImagePro)
-    expect(wrapper.contains(AvatarMode)).to.equal(true)
+    expect(wrapper.contains(AvatarMode)).toBe(true)
   })
   it('当有src时, 加载ImageMode', function () {
     const wrapper = shallowMount(VueImagePro, {
@@ -16,7 +15,7 @@ describe('VueImagePro.vue', function () {
         src: 'https://dwz.cn/r5An7zg3'
       }
     })
-    expect(wrapper.contains(ImageMode)).to.equal(true)
+    expect(wrapper.contains(ImageMode)).toBe(true)
   })
   it('imageSrc: 配置全局默认 src', function () {
     const globalSrc = 'https://global.png'
@@ -27,7 +26,7 @@ describe('VueImagePro.vue', function () {
     const wrapper = shallowMount(VueImagePro, {
       localVue
     })
-    expect(wrapper.vm.imageSrc).to.equal(globalSrc)
+    expect(wrapper.vm.imageSrc).toBe(globalSrc)
   })
 
   it('imageSrc: 配置defaultSrc, 覆盖全局默认src', function () {
@@ -43,7 +42,7 @@ describe('VueImagePro.vue', function () {
         defaultSrc: defaultSrc
       }
     })
-    expect(wrapper.vm.imageSrc).to.equal(defaultSrc)
+    expect(wrapper.vm.imageSrc).toBe(defaultSrc)
   })
 
   it('imageSrc: 配置 src 覆盖 defaultSrc 和 全局默认的src', function () {
@@ -61,12 +60,12 @@ describe('VueImagePro.vue', function () {
         src: customSrc
       }
     })
-    expect(wrapper.vm.imageSrc).to.equal(customSrc)
+    expect(wrapper.vm.imageSrc).toBe(customSrc)
   })
 
   it('computedSize: 默认为50', function () {
     const wrapper = shallowMount(VueImagePro)
-    expect(wrapper.vm.computedSize).to.equal(50)
+    expect(wrapper.vm.computedSize).toBe(50)
   })
 
   it('computedSize: 配置全局默认值 size', function () {
@@ -79,7 +78,7 @@ describe('VueImagePro.vue', function () {
     const wrapper = shallowMount(VueImagePro, {
       localVue
     })
-    expect(wrapper.vm.computedSize).to.equal(globalSize)
+    expect(wrapper.vm.computedSize).toBe(globalSize)
   })
 
   it('computedSize: 配置 src 覆盖全局默认值 size', function () {
@@ -96,7 +95,7 @@ describe('VueImagePro.vue', function () {
         size: customSize
       }
     })
-    expect(wrapper.vm.computedSize).to.equal(customSize)
+    expect(wrapper.vm.computedSize).toBe(customSize)
   })
 
   it('imageWidth: 默认值 为 size 值', function () {
@@ -106,7 +105,7 @@ describe('VueImagePro.vue', function () {
         size: size
       }
     })
-    expect(wrapper.vm.imageWidth).to.equal(size)
+    expect(wrapper.vm.imageWidth).toBe(size)
   })
 
   it('imageHeight: 默认值 为 size 值', function () {
@@ -116,7 +115,7 @@ describe('VueImagePro.vue', function () {
         size: size
       }
     })
-    expect(wrapper.vm.imageHeight).to.equal(size)
+    expect(wrapper.vm.imageHeight).toBe(size)
   })
 
   it('imageWidth: 设置全局width值, 覆盖size值', function () {
@@ -133,7 +132,7 @@ describe('VueImagePro.vue', function () {
         size: customSize
       }
     })
-    expect(wrapper.vm.imageWidth).to.equal(globalWidth)
+    expect(wrapper.vm.imageWidth).toBe(globalWidth)
   })
 
   it('imageWidth: 设置width值, 覆盖全局默认width值', function () {
@@ -150,7 +149,7 @@ describe('VueImagePro.vue', function () {
         width: customWidth
       }
     })
-    expect(wrapper.vm.imageWidth).to.equal(customWidth)
+    expect(wrapper.vm.imageWidth).toBe(customWidth)
   })
 
   it('imageHeight: 设置全局height值, 覆盖size值', function () {
@@ -167,7 +166,7 @@ describe('VueImagePro.vue', function () {
         size: customSize
       }
     })
-    expect(wrapper.vm.imageHeight).to.equal(globalHeight)
+    expect(wrapper.vm.imageHeight).toBe(globalHeight)
   })
 
   it('imageHeight: 设置height值, 覆盖全局默认height值', function () {
@@ -184,7 +183,7 @@ describe('VueImagePro.vue', function () {
         height: customHeight
       }
     })
-    expect(wrapper.vm.imageHeight).to.equal(customHeight)
+    expect(wrapper.vm.imageHeight).toBe(customHeight)
   })
 
   it('VueImagePro 设置width, height, 同步到AvatarMode', function () {
@@ -197,8 +196,8 @@ describe('VueImagePro.vue', function () {
       }
     })
     const avatar = wrapper.find(AvatarMode)
-    expect(wrapper.vm.imageWidth).to.equal(avatar.vm.width)
-    expect(wrapper.vm.imageHeight).to.equal(avatar.vm.height)
+    expect(wrapper.vm.imageWidth).toBe(avatar.vm.width)
+    expect(wrapper.vm.imageHeight).toBe(avatar.vm.height)
   })
 
   it('VueImagePro 设置src, width, height, 同步到ImageMode', function () {
@@ -212,8 +211,8 @@ describe('VueImagePro.vue', function () {
       }
     })
     const image = wrapper.find(ImageMode)
-    expect(wrapper.vm.imageWidth).to.equal(image.vm.width)
-    expect(wrapper.vm.imageHeight).to.equal(image.vm.height)
-    expect(wrapper.vm.imageSrc).to.equal(image.vm.src)
+    expect(wrapper.vm.imageWidth).toBe(image.vm.width)
+    expect(wrapper.vm.imageHeight).toBe(image.vm.height)
+    expect(wrapper.vm.imageSrc).toBe(image.vm.src)
   })
 })

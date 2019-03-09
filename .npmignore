@@ -4,7 +4,7 @@ docs
 documentation
 public
 vue.config.js
-cypress.json
+coverage
 babel.config.js
 .editorconfig
 dist/demo.html
