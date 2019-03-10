@@ -1,5 +1,6 @@
+const isCover = !!process.env.COVER
 module.exports = {
-  collectCoverage: true,
+  collectCoverage: isCover,
   collectCoverageFrom: ['src/**/*.{js,vue}', '!**/node_modules/**'],
   coverageReporters: ['html', 'text-summary'],
   moduleFileExtensions: ['js', 'jsx', 'json', 'vue'],
