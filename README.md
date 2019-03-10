@@ -24,7 +24,7 @@ This component display an image and if none is provided fallback to the username
 - Friendly to Chinese
 - When the width and height of the image are inconsistent, it can still be displayed perfectly and will not be deformed.
 
-## documentation 和 examples
+## Documentation and Examples
 
 [documentation](https://dream2023.github.io/vue-image-pro/)
 <br />
@@ -75,23 +75,23 @@ export default {
 
 ## Props
 
-| Name            | Required | Default                           | Type   | Description                                                                                                   |
-| --------------- | -------- | --------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| username        | N        | (empty)                           | String | When the src attribute is empty,The user name that will be used to compute user initial.                      |
-| src             | N        | -                                 | String | Path to the image to display.                                                                                 |
-| defaultSrc      | N        | -                                 | String | Default Picture Links                                                                                         |
-| mode            | N        | aspectFill                        | String | display mode                                                                                                  |
-| size            | N        | 50                                | Number | width=height=size, If you set the width and height attributes, the size attribute values will be overwritten. |
-| width           | N        | -                                 | Number | image width                                                                                                   |
-| height          | N        | -                                 | Number | image height                                                                                                  |
-| color           | N        | 根据背景色自动计算                | String | font color                                                                                                    |
-| backgroundColor | N        | 随机颜色                          | String | background color                                                                                              |
-| radius          | N        | 有图时默认为: 0, 无图时默认是: 50 | Number | image radius                                                                                                  |
-| customStyle     | N        | {}                                | Object | A custom style object to override the base styles                                                             |
+| Name            | Required | Default                                                                                         | Type   | Description                                                                                                   |
+| --------------- | -------- | ----------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| username        | N        | (empty)                                                                                         | String | When the src attribute is empty,The user name that will be used to compute user initial.                      |
+| src             | N        | -                                                                                               | String | Path to the image to display.                                                                                 |
+| defaultSrc      | N        | -                                                                                               | String | Default Picture Links                                                                                         |
+| mode            | N        | aspectFill                                                                                      | String | display mode                                                                                                  |
+| size            | N        | 50                                                                                              | Number | width=height=size, If you set the width and height attributes, the size attribute values will be overwritten. |
+| width           | N        | -                                                                                               | Number | image width                                                                                                   |
+| height          | N        | -                                                                                               | Number | image height                                                                                                  |
+| color           | N        | Automatic calculation based on background color                                                 | String | font color                                                                                                    |
+| backgroundColor | N        | Based on the number of user initials                                                            | String | background color                                                                                              |
+| radius          | N        | When the src attribute value exists, the default value is 0, otherwise the default value is 50. | Number | image radius                                                                                                  |
+| customStyle     | N        | {}                                                                                              | Object | A custom style object to override the base styles                                                             |
 
-### mode values
+### Mode values
 
-| 值          | 说明                                                                                                                                                                                                                                       |
+| Value       | Description                                                                                                                                                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | aspectFill  | Scale an image while preserving the aspect ratio, ensuring that only short sides of the image are fully displayed. This means that if an image is only complete when shown horizontally or vertically, part of that image will be cut off. |
 | scaleToFill | It does not keep the aspect ratio for image zooming, which causes the width and height of images to stretch to fill the 'image' element                                                                                                    |
