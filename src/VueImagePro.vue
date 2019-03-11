@@ -8,6 +8,8 @@
     :radius="radius"
     :src="imageSrc"
     :width="imageWidth"
+    @error="handleImageLoadError"
+    @success="handleImageLoadSuccess"
     v-if="imageSrc"
   />
   <avatar-mode
@@ -105,6 +107,14 @@ export default {
     // 图片高度
     imageHeight () {
       return this.height || (this.$IMAGE_PRO || {}).height || this.computedSize
+    }
+  },
+  methods: {
+    handleImageLoadSuccess () {
+      this.$emit('success')
+    },
+    handleImageLoadError () {
+      this.$emit('error')
     }
   }
 }

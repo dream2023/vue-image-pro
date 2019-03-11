@@ -17,6 +17,21 @@ describe('VueImagePro.vue', function () {
     })
     expect(wrapper.contains(ImageMode)).toBe(true)
   })
+
+  it('当有src时, 加载成功或者失败的事件触发', function () {
+    const wrapper = shallowMount(VueImagePro, {
+      propsData: {
+        src: 'https://dwz.cn/r5An7zg3'
+      }
+    })
+    const image = wrapper.find(ImageMode)
+    image.vm.$emit('success')
+    expect(wrapper.emitted().success).toBeTruthy()
+
+    image.vm.$emit('error')
+    expect(wrapper.emitted().error).toBeTruthy()
+  })
+
   it('imageSrc: 配置全局默认 src', function () {
     const globalSrc = 'https://global.png'
     const localVue = createLocalVue()
