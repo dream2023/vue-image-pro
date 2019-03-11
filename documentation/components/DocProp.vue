@@ -52,6 +52,25 @@
   style="font-size:28px;"
 >插槽</image-pro>
     </pre>
+
+    <h2>事件</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>事件名</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          :key="index"
+          v-for="(item, index) of eventArr"
+        >
+          <td>{{item.name}}</td>
+          <td>{{item.desc}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -159,6 +178,16 @@ export default {
         {
           value: 'heightFix',
           desc: '高度不变，宽度自动变化，保持原图宽高比不变'
+        }
+      ],
+      eventArr: [
+        {
+          name: 'success',
+          desc: '图片加载成功'
+        },
+        {
+          name: 'error',
+          desc: '图片加载失败'
         }
       ]
     }

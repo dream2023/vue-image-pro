@@ -99,6 +99,15 @@ export default {
         {
           props: {
             size: 100,
+            backgroundColor: '#fbd410',
+            isShowBgColor: true,
+            src: 'https://dwz.cn/TXYnhjV0'
+          },
+          desc: '当有图片时, 依然显示背景色'
+        },
+        {
+          props: {
+            size: 100,
             defaultSrc: 'https://dwz.cn/q4z3fZF1'
           },
           desc: '可以设置默认显示图片'

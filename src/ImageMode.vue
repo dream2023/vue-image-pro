@@ -41,7 +41,15 @@ export default {
       type: Number,
       required: true
     },
-
+    // 背景色
+    backgroundColor: {
+      type: String
+    },
+    // 是否显示背景色
+    isShowBgColor: {
+      type: Boolean,
+      default: false
+    },
     // 自定义样式
     customStyle: {
       type: Object
@@ -134,6 +142,11 @@ export default {
         borderRadius: `${this.imageRadius}%`,
         backgroundSize: this.backgroundSize,
         backgroundImage: `url(${this.src})`
+      }
+
+      // 判断是否显示背景色
+      if (this.isShowBgColor) {
+        style.backgroundColor = this.backgroundColor
       }
       return Object.assign({}, style, this.customStyle)
     }

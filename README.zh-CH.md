@@ -83,6 +83,7 @@ export default {
 | height          |    N     |                 -                 | Number | 图片高度                                                     |
 | color           |    N     |        根据背景色自动计算         | String | 字体颜色                                                     |
 | backgroundColor |    N     |             随机颜色              | String | 背景颜色                                                     |
+| isShowBgColor   |    N     |               false               | String | 当存在 src 时, 是否显示 backgroundColor 背景色               |
 | radius          |    N     | 有图时默认为: 0, 无图时默认是: 50 | Number | 图片圆角                                                     |
 | customStyle     |    N     |                {}                 | Object | 自定义样式                                                   |
 
@@ -102,3 +103,10 @@ export default {
 <!-- 实例 -->
 <image-pro>插槽</image-pro>
 ```
+
+### 事件
+
+| 事件名  | 说明         |
+| ------- | ------------ |
+| success | 图片加载成功 |
+| error   | 图片加载失败 |

@@ -1,7 +1,9 @@
 <template>
   <image-mode
+    :backgroundColor="backgroundColor"
     :customStyle="customStyle"
     :height="imageHeight"
+    :isShowBgColor="isShowBgColor"
     :mode="mode"
     :radius="radius"
     :src="imageSrc"
@@ -65,6 +67,11 @@ export default {
     // 当图片不存在时的背景色
     backgroundColor: {
       type: String
+    },
+    // 当图片存在时, 是否强制现实背景颜色
+    isShowBgColor: {
+      type: Boolean,
+      default: false
     },
     // 圆角
     radius: {

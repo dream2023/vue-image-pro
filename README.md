@@ -75,19 +75,20 @@ export default {
 
 ## Props
 
-| Name            | Required | Default                                                                                         | Type   | Description                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| username        | N        | (empty)                                                                                         | String | When the src attribute is empty,The user name that will be used to compute user initial.                      |
-| src             | N        | -                                                                                               | String | Path to the image to display.                                                                                 |
-| defaultSrc      | N        | -                                                                                               | String | Default Picture Links                                                                                         |
-| mode            | N        | aspectFill                                                                                      | String | display mode                                                                                                  |
-| size            | N        | 50                                                                                              | Number | width=height=size, If you set the width and height attributes, the size attribute values will be overwritten. |
-| width           | N        | -                                                                                               | Number | image width                                                                                                   |
-| height          | N        | -                                                                                               | Number | image height                                                                                                  |
-| color           | N        | Automatic calculation based on background color                                                 | String | font color                                                                                                    |
-| backgroundColor | N        | Based on the number of user initials                                                            | String | background color                                                                                              |
-| radius          | N        | When the src attribute value exists, the default value is 0, otherwise the default value is 50. | Number | image radius                                                                                                  |
-| customStyle     | N        | {}                                                                                              | Object | A custom style object to override the base styles                                                             |
+| Name            | Required | Default                                                                                                  | Type   | Description                                                                                                   |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| username        | N        | (empty)                                                                                                  | String | When the src attribute is empty,The user name that will be used to compute user initial.                      |
+| src             | N        | -                                                                                                        | String | Path to the image to display.                                                                                 |
+| defaultSrc      | N        | -                                                                                                        | String | Default Picture Links                                                                                         |
+| mode            | N        | aspectFill                                                                                               | String | display mode                                                                                                  |
+| size            | N        | 50                                                                                                       | Number | width=height=size, If you set the width and height attributes, the size attribute values will be overwritten. |
+| width           | N        | -                                                                                                        | Number | image width                                                                                                   |
+| height          | N        | -                                                                                                        | Number | image height                                                                                                  |
+| color           | N        | Automatic calculation based on background color                                                          | String | font color                                                                                                    |
+| backgroundColor | N        | Based on the number of user initials                                                                     | String | background color                                                                                              |
+| isShowBgColor   | N        | Boolean                                                                                                  | false  | Whether to display backgroundColor background color when src exists                                           |
+| radius          | N        | 0 or 50, When the src attribute value exists, the default value is 0, otherwise the default value is 50. | Number | image radius                                                                                                  |
+| customStyle     | N        | {}                                                                                                       | Object | A custom style object to override the base styles                                                             |
 
 ### Mode values
 
@@ -99,9 +100,16 @@ export default {
 | widthFix    | Maintains a constant width, and the height automatically changes, keeping the image's original aspect ratio                                                                                                                                |
 | heightFix   | Maintains a constant height, and the width automatically changes, keeping the image's original aspect ratio                                                                                                                                |
 
-### slot
+### Slot
 
 ```html
 <!-- example -->
 <image-pro>slot</image-pro>
 ```
+
+### Event
+
+| Name    | Description        |
+| ------- | ------------------ |
+| success | image load success |
+| error   | image load error   |

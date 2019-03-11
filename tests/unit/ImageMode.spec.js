@@ -256,4 +256,35 @@ describe('ImageMode.vue', function () {
       })
     )
   })
+
+  it('ImageMode style, 设置isShowBgColor为 true', function () {
+    const src = 'http://localhost/test.jpeg'
+    const wrapper = shallowMount(ImageMode, {
+      propsData: {
+        src: src,
+        isShowBgColor: true,
+        backgroundColor: '#123456',
+        width: 100,
+        height: 100
+      }
+    })
+
+    wrapper.setData({
+      imageSize: {
+        width: 2560,
+        height: 1440
+      }
+    })
+
+    expect(JSON.stringify(wrapper.vm.imageStyle)).toBe(
+      JSON.stringify({
+        width: `100px`,
+        height: `100px`,
+        borderRadius: `0%`,
+        backgroundSize: '177% 100%',
+        backgroundImage: `url(${src})`,
+        backgroundColor: '#123456'
+      })
+    )
+  })
 })
