@@ -151,24 +151,26 @@ export default {
       return Object.assign({}, style, this.customStyle)
     }
   },
+  watch: {
+    src () {
+      this.getImageSize()
+    }
+  },
   methods: {
     getImageSize () {
       if (this.src) {
         const img = new Image()
         img.src = this.src
-
-        img.onerror = () => {
+        img.addEventListener('error', () => {
           this.$emit('error')
-        }
-
-        img.onload = () => {
+        })
+        img.addEventListener('load', () => {
           this.imageSize = {
             width: img.width,
             height: img.height
           }
           this.$emit('success')
-          img.onload = null // 避免重复加载
-        }
+        })
       }
     }
   },
