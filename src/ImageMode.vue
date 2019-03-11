@@ -139,23 +139,21 @@ export default {
     }
   },
   methods: {
-    /* istanbul ignore next */
     getImageSize () {
       if (this.src) {
         const img = new Image()
         img.src = this.src
 
-        /* istanbul ignore next */
         img.onerror = () => {
           this.$emit('error')
         }
 
-        /* istanbul ignore next */
         img.onload = () => {
           this.imageSize = {
             width: img.width,
             height: img.height
           }
+          this.$emit('success')
           img.onload = null // 避免重复加载
         }
       }
