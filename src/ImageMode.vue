@@ -161,16 +161,22 @@ export default {
       if (this.src) {
         const img = new Image()
         img.src = this.src
-        img.addEventListener('error', () => {
+        const imageErrorHandle = () => {
           this.$emit('error')
-        })
-        img.addEventListener('load', () => {
+          img.removeEventListener('error', imageErrorHandle)
+        }
+        img.addEventListener('error', imageErrorHandle)
+
+        const imageLoadHandle = () => {
           this.imageSize = {
             width: img.width,
             height: img.height
           }
           this.$emit('success')
-        })
+          img.removeEventListener('load', imageLoadHandle)
+        }
+
+        img.addEventListener('load', imageLoadHandle)
       }
     }
   },
