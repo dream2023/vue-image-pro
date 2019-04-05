@@ -2,7 +2,7 @@
   <div
     :style="[style, customStyle]"
     aria-hidden="true"
-    class="vue-avatar--wrapper"
+    class="vue-image-pro--avatar"
   >
     <slot>{{ userInitial }}</slot>
   </div>
@@ -152,7 +152,7 @@ export default {
 </script>
 
 <style>
-.vue-avatar--wrapper {
+.vue-image-pro--avatar {
   display: inline-block;
   text-align: center;
   vertical-align: middle;

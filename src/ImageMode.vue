@@ -1,7 +1,7 @@
 <template>
   <div
     :style="imageStyle"
-    class="vue-image-pro--wrapper"
+    class="vue-image-pro--image"
   ></div>
 </template>
 
@@ -187,7 +187,7 @@ export default {
 </script>
 
 <style>
-.vue-image-pro--wrapper {
+.vue-image-pro--image {
   font-weight: bold;
   display: inline-block;
   background-repeat: no-repeat;

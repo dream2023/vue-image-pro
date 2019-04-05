@@ -4,17 +4,7 @@
     <doc-github/>
     <doc-desc/>
     <doc-prop/>
-    <doc-example v-if="isDev"/>
-    <div v-else>
-      <h2>示例</h2>
-      <iframe
-        allowfullscreen="allowfullscreen"
-        frameborder="0"
-        height="2000"
-        src="//jsrun.net/x2XKp/embedded/all/light/"
-        width="100%"
-      ></iframe>
-    </div>
+    <doc-example/>
   </div>
 </template>
 

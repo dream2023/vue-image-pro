@@ -14,7 +14,10 @@
           v-for="(item, index) of examples"
         >
           <td>
-            <image-pro v-bind="item.props">
+            <image-pro
+              class="demo"
+              v-bind="item.props"
+            >
               <template v-if="item.slot">{{item.slot}}</template>
             </image-pro>
           </td>
