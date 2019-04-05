@@ -31,7 +31,8 @@
     "test:e2e": "vue-cli-service test:e2e --mode e2e",
     "test:cover": "cross-env COVER=true vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "test": "npm run test:cover && vue-cli-service test:e2e --mode e2e --headless --record --key 6426a074-edcd-4309-8fb2-9691218ab19d"
+    "test": "npm run test:cover && vue-cli-service test:e2e --mode e2e --headless",
+    "ci": "npm run test:cover && vue-cli-service test:e2e --mode e2e --headless --record --key 6426a074-edcd-4309-8fb2-9691218ab19d"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
@@ -53,6 +54,6 @@
   },
   "gitHooks": {
     "pre-commit": "vue-cli-service lint src/* documentation/*",
-    "pre-push": "npm run test:unit"
+    "pre-push": "npm run test"
   }
 }
