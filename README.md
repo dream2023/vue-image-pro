@@ -9,7 +9,7 @@
 
 ## English Document
 
-[中文文档](./README-EN.md)
+[English Document](./README-EN.md)
 
 ## 介绍
 
