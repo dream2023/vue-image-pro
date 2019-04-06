@@ -10,6 +10,7 @@ describe('vue-image-pro', () => {
 
   beforeEach(() => {
     cy.visit('/')
+    cy.contains('效果').scrollIntoView()
   })
   it('vue-image-pro image mode', () => {
     const testData = [
