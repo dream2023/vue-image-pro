@@ -26,26 +26,15 @@
     "build:lib": "vue build -t lib --name vue-image-pro -d ./dist/ ./src/index.js",
     "build:docs": "vue-cli-service build",
     "build": "npm run lint && npm run build:docs && npm run build:lib",
-    "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e --mode e2e",
-    "test:cover": "cross-env COVER=true vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch",
-    "test": "npm run test:cover && vue-cli-service test:e2e --mode e2e --headless",
-    "ci": "npm run test:cover && vue-cli-service test:e2e --mode e2e --headless --record --key 6426a074-edcd-4309-8fb2-9691218ab19d"
+    "lint": "vue-cli-service lint"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-e2e-cypress": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-plugin-unit-jest": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
     "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.4",
@@ -53,7 +42,6 @@
     "vue-template-compiler": "^2.5.21"
   },
   "gitHooks": {
-    "pre-commit": "vue-cli-service lint src/* documentation/*",
-    "pre-push": "npm run test"
+    "pre-commit": "vue-cli-service lint src/* documentation/*"
   }
 }
