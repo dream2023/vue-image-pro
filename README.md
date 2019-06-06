@@ -1,11 +1,13 @@
 # vue-image-pro
 
-[![Build Status](https://www.travis-ci.org/dream2023/vue-image-pro.svg?branch=master)](https://www.travis-ci.org/dream2023/vue-image-pro)
+<!-- [![Build Status](https://www.travis-ci.org/dream2023/vue-image-pro.svg?branch=master)](https://www.travis-ci.org/dream2023/vue-image-pro) -->
+
 [![license](https://img.shields.io/npm/l/vue-image-pro.svg)](https://dream2023.github.io/vue-image-pro/)
 [![npm](https://img.shields.io/npm/v/vue-image-pro.svg)](https://www.npmjs.com/package/vue-image-pro)
 [![size](https://img.shields.io/bundlephobia/minzip/vue-image-pro.svg)](https://www.npmjs.com/package/vue-image-pro)
 [![download](https://img.shields.io/npm/dw/vue-image-pro.svg)](https://npmcharts.com/compare/vue-image-pro?minimal=true)
-[![codecov](https://codecov.io/gh/dream2023/vue-image-pro/branch/master/graph/badge.svg)](https://codecov.io/gh/dream2023/vue-image-pro)
+
+<!-- [![codecov](https://codecov.io/gh/dream2023/vue-image-pro/branch/master/graph/badge.svg)](https://codecov.io/gh/dream2023/vue-image-pro) -->
 
 ## English Document
 
